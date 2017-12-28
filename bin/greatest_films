@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+require_relative '../lib/greatest_films'
+GreatestFilms::CLI.new.call
