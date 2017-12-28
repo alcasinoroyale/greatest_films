@@ -6,5 +6,4 @@ class GreatestFilms::Scraper
   def scrape_film_index
     self.get_page.css("section#topmovies_main td a").slice(0,9)
   end
-
 end
