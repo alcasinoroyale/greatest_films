@@ -23,3 +23,6 @@ class GreatestFilms::CLI
     end
   end
 end
+
+def list_film_selection(film)
+end
