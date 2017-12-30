@@ -7,7 +7,7 @@ def self.new_from_index(c)
   self.new(
   c.css("td[span='a.unstyled_articleLink']").text,
   c.css("td[span='tMeterScore']").text,
-  "http://www.rottentomatoes.com/top/bestofrt/top_100_comedy_movies#{c.css("td a", "href").text}"
+  "https://www.rottentomatoes.com/top/bestofrt/top_100_comedy_movies#{c.css("td a", "href").text}"
   )
 end
 
