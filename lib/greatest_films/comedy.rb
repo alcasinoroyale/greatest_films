@@ -3,6 +3,14 @@ class GreatestFilms::Comedy
 
   @@all = []
 
+def self.new_from_index(c)
+  self.new(
+  c.css("td[span='a.unstyled_articleLink']").text,
+  c.css("td[span'tMeterScore']").text,
+  "http://www.rottentomatoes.com/top/bestofrt/top_100_comedy_movies#{c.css("td a", "href").text}"
+  )
+end
+
 def initialize(name = nil, rating = nil, url = nil)
   @name = name
   @rating = rating
@@ -26,7 +34,7 @@ def director
   @director ||= data.search ("div.meta-label subtle").text
 end
 
-def @cast
+def cast
   @cast ||= data.search("div.panel-body.content_body").text
 end
 
