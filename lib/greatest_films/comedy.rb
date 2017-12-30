@@ -3,7 +3,6 @@ class GreatestFilms::Comedy
 
   @@all = []
 
-
 def initialize(name = nil, rating = nil, url = nil)
   @name = name
   @rating = rating
@@ -33,5 +32,9 @@ end
 
 def reviews
   @reviews ||= data.search("div.section#contentReviews")
+end
+
+def data
+  @data ||= Nokogiri::HTML(open(self.url))
 end
 end
