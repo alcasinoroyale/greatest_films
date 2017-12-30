@@ -37,6 +37,11 @@ def list_film_selection(film)
   puts "Cast:       #{film.cast}"
   puts "Reviews:    #{film.reviews}"
   puts "Webpage:    #{film.url}"
+  puts ""
+  puts "----Movie Info------"
+  puts ""
+  puts "#{film.movie_info}"
+  puts ""
   new_selection
 end
 

@@ -27,11 +27,11 @@ def self.find(id)
 end
 
 def movie_info
-  @movie_info ||= data.search("div.panel-heading")
+  @movie_info ||= data.search("div.panel-heading").text
 end
 
 def director
-  @director ||= data.search ("div.meta-label subtle").text
+  @director ||= data.search ("div.meta-label_subtle").text
 end
 
 def cast
@@ -39,7 +39,7 @@ def cast
 end
 
 def reviews
-  @reviews ||= data.search("div.section#contentReviews")
+  @reviews ||= data.search("div.section#contentReviews").text
 end
 
 def data
