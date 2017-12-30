@@ -25,4 +25,18 @@ class GreatestFilms::CLI
 end
 
 def list_film_selection(film)
+  new_selection
 end
+
+def new_selection
+  puts "Would you like to explore another film, Y or N?"
+    input = gets.strip.downcase
+      if input == "y"
+        start
+      else
+        puts ""
+        puts "Thank you for visiting Rotten Tomatoes Greatest Comedies. Goodbye!"
+        exit
+      end
+    end
+  end
