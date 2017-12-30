@@ -1,13 +1,17 @@
+require 'pry'
 class GreatestFilms::CLI
 
   def call
     GreatestFilms::Scraper.new.make_comedies
     puts "Welcome to Rotten Tomatoes Greatest Comedies!"
+    start
+    film_selection
+    new_selection
   end
 
   def start
     input = nil
-    while input!= "exit"
+    while input != "exit"
       puts ""
       puts "Which film would you like to further explore? Enter 1 - 10."
       puts "If you would like to exit, type 'exit'"
@@ -18,6 +22,7 @@ class GreatestFilms::CLI
         exit
       elsif input.to_i > 0
         if film = GreatestFilms::Comedy.find(input.to_i)
+          binding.pry
           list_film_selection(film)
       end
     end
