@@ -26,8 +26,4 @@ end
 def director
   @director ||= data.search ("div.meta-label subtle").text
 end
-
-def cast
-  @cast ||= data.search("div.panel-body.content_body").text
-end
 end
