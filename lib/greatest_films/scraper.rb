@@ -5,5 +5,12 @@ class GreatestFilms::Scraper
 
   def scrape_film_index
     self.get_page.css("section#topmovies_main td a").slice(0,9)
+    require 'pry'
+  end
+
+  def make_comedies
+    scrape_film_index.each do |c|
+      GreatestFilms::Comedy.new_from_index(c)
+    end
   end
 end
