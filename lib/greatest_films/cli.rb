@@ -2,7 +2,7 @@ require 'pry'
 class GreatestFilms::CLI
 
   def call
-    GreatestFilms::Scraper.new.make_comedies
+    GreatestFilms::Scraper.new.scrape_film_index
     puts "Welcome to Rotten Tomatoes Greatest Comedies!"
     start
     list_film_selection(film)
@@ -10,6 +10,7 @@ class GreatestFilms::CLI
   end
 
   def start
+    GreatestFilms::Scraper.new.make_comedies
     input = nil
     while input != "exit"
       puts ""

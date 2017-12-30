@@ -31,7 +31,7 @@ def movie_info
 end
 
 def director
-  @director ||= data.search ("div.meta-label_subtle").text
+  @director ||= data.search("div.meta-label_subtle").text
 end
 
 def cast

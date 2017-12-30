@@ -13,4 +13,5 @@ class GreatestFilms::Scraper
       GreatestFilms::Comedy.new_from_index(c)
     end
   end
+  binding.pry
 end
