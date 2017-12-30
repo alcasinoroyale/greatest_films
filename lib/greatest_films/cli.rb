@@ -5,7 +5,7 @@ class GreatestFilms::CLI
     GreatestFilms::Scraper.new.make_comedies
     puts "Welcome to Rotten Tomatoes Greatest Comedies!"
     start
-    film_selection
+    list_film_selection(film)
     new_selection
   end
 
@@ -30,6 +30,8 @@ class GreatestFilms::CLI
 end
 
 def list_film_selection(film)
+  puts ""
+  puts "----#{film.name} - #{film.rating}----"
   new_selection
 end
 
@@ -38,7 +40,7 @@ def new_selection
     input = gets.strip.downcase
       if input == "y"
         start
-      else
+      elsif input == "n"
         puts ""
         puts "Thank you for visiting Rotten Tomatoes Greatest Comedies. Goodbye!"
         exit
