@@ -32,6 +32,11 @@ end
 def list_film_selection(film)
   puts ""
   puts "----#{film.name} - #{film.rating}----"
+  puts ""
+  puts "Director:   #{film.director}"
+  puts "Cast:       #{film.cast}"
+  puts "Reviews:    #{film.reviews}"
+  puts "Webpage:    #{film.url}"
   new_selection
 end
 
