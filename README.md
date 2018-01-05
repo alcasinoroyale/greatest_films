@@ -1,8 +1,6 @@
 # GreatestFilms
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/greatest_films`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This ruby gem is a CLI to view films and their info from Rotten Tomatoes List of the 100 Greatest Comedies.
 
 ## Installation
 
