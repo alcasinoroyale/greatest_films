@@ -2,15 +2,21 @@ require 'pry'
 class GreatestFilms::CLI
 
   def call
-    GreatestFilms::Scraper.new.scrape_film_index
+    GreatestFilms::Scraper.new.make_comedies
     puts "Welcome to Rotten Tomatoes Greatest Comedies!"
+    list_films
     start
     list_film_selection(film)
     new_selection
   end
 
+  def list_films
+    GreatestFilms::Comedy.all.each.with_index do |film, i|
+      puts "#{i}. #{film.name}"
+    end
+  end
+
   def start
-    GreatestFilms::Scraper.new.make_comedies
     input = nil
     while input != "exit"
       puts ""
@@ -22,8 +28,7 @@ class GreatestFilms::CLI
         puts "Thank you for visiting Rotten Tomatoes Greatest Comedies. Goodbye!"
         exit
       elsif input.to_i > 0
-        if film = GreatestFilms::Comedy.find(input.to_i)
-          binding.pry
+          if film = GreatestFilms::Comedy.find(input.to_i)
           list_film_selection(film)
       end
     end
@@ -57,4 +62,4 @@ def new_selection
         exit
       end
     end
-  end
+end

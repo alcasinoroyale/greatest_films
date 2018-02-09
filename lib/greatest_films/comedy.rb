@@ -1,17 +1,18 @@
+require 'pry'
 class GreatestFilms::Comedy
   attr_accessor :name, :rating, :url, :movie_info, :director, :cast, :reviews
 
   @@all = []
 
-def self.new_from_index(c)
-  self.new(
-  c.css("td[span='a.unstyled_articleLink']").text,
-  c.css("td[span='tMeterScore']").text,
-  "https://www.rottentomatoes.com/top/bestofrt/top_100_comedy_movies#{c.css("td a", "href").text}"
+  def self.new_from_index(c)
+    self.new(
+    c.css("td a", "unstyled articleLink").text,
+    c.css(".tMeterScore").text,
+    "http://www.rottentomatoes.com#{c.css("a").attributes_for("href").text}"
   )
 end
 
-def initialize(name = nil, rating = nil, url = nil)
+def initialize(name=nil, rating=nil, url=nil)
   @name = name
   @rating = rating
   @url = url
@@ -27,19 +28,19 @@ def self.find(id)
 end
 
 def movie_info
-  @movie_info ||= data.search("div.panel-heading").text
+  @movie_info ||= data.xpath("//div[@class='movie_synopsis clamp clamp-6']").text
 end
 
 def director
-  @director ||= data.search("div.meta-label_subtle").text
+  @director ||= data.xpath("//ul[@class='content-meta info']/li[3]/div[2]").text
 end
 
 def cast
-  @cast ||= data.search("div.panel-body.content_body").text
+  @cast ||= data.search("div.castSection").text
 end
 
 def reviews
-  @reviews ||= data.search("div.section#contentReviews").text
+  @reviews ||= data.xpath("//div[@id='scoreStats']").text
 end
 
 def data
