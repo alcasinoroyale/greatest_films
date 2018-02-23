@@ -8,7 +8,7 @@ class GreatestFilms::Comedy
     self.new(
     c.css("td a", "unstyled articleLink").text,
     c.css(".tMeterScore").text,
-    "http://www.rottentomatoes.com#{c.css("a").attributes_for("href").text}"
+    "https://www.rottentomatoes.com#{c.css("td a", "href").text}"
   )
 end
 

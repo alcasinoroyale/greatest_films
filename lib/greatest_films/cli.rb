@@ -11,7 +11,7 @@ class GreatestFilms::CLI
   end
 
   def list_films
-    GreatestFilms::Comedy.all.each.with_index do |film, i|
+    GreatestFilms::Comedy.all.each.with_index(1) do |film, i|
       puts "#{i}. #{film.name}"
     end
   end
@@ -24,6 +24,7 @@ class GreatestFilms::CLI
       puts "If you would like to exit, type 'exit'"
       input = gets.strip
       comedy = GreatestFilms::Comedy.find(input.to_i)
+      binding.pry
       if input == "exit"
         puts "Thank you for visiting Rotten Tomatoes Greatest Comedies. Goodbye!"
         exit
