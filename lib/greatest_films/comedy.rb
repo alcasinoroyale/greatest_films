@@ -8,10 +8,9 @@ class GreatestFilms::Comedy
     self.new(
     c.css("td a", "unstyled articleLink").text,
     c.css(".tMeterScore").text,
-    "https://www.rottentomatoes.com#{c.css("td a", "href").text}"
+    "https://www.rottentomatoes.com#{c.css("a").attribute("href").text}"
   )
 end
-
 def initialize(name=nil, rating=nil, url=nil)
   @name = name
   @rating = rating
@@ -28,19 +27,19 @@ def self.find(id)
 end
 
 def movie_info
-  @movie_info ||= data.xpath("//div[@class='movie_synopsis clamp clamp-6']").text
+  @movie_info ||= data.xpath("//div[@class='movie_synopsis clamp clamp-6']").text.strip
 end
 
 def director
-  @director ||= data.xpath("//ul[@class='content-meta info']/li[3]/div[2]").text
+  @director ||= data.xpath("//ul[@class='content-meta info']/li[3]/div[2]").text.strip
 end
 
 def cast
-  @cast ||= data.search("div.castSection").text
+  @cast ||= data.search("div.castSection").text.strip
 end
 
 def reviews
-  @reviews ||= data.xpath("//div[@id='scoreStats']").text
+  @reviews ||= data.xpath("//div[@id='scoreStats']").text.strip
 end
 
 def data

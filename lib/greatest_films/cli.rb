@@ -24,13 +24,13 @@ class GreatestFilms::CLI
       puts "If you would like to exit, type 'exit'"
       input = gets.strip
       comedy = GreatestFilms::Comedy.find(input.to_i)
-      binding.pry
+      # binding.pry
       if input == "exit"
         puts "Thank you for visiting Rotten Tomatoes Greatest Comedies. Goodbye!"
         exit
       elsif input.to_i > 0
-          if film = GreatestFilms::Comedy.find(input.to_i)
-          list_film_selection(film)
+          if comedy
+          list_film_selection(comedy)
       end
     end
   end
