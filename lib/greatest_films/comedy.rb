@@ -35,7 +35,8 @@ def director
 end
 
 def cast
-  @cast ||= data.search("div.castSection").text.strip
+  @cast ||= data.search("div.cast-item.media.inlineBlock").text.strip
+
 end
 
 def reviews
