@@ -4,17 +4,17 @@ class GreatestFilms::CLI
   def call
     GreatestFilms::Scraper.new.make_comedies
     puts "Welcome to Rotten Tomatoes Greatest Comedies!"
-    list_films
+    list_films(0, 5)
     start
     list_film_selection(film)
     new_selection
   end
 
-  def list_films
+  def list_films(first_number, second_number)
     GreatestFilms::Comedy.all.each.with_index(1) do |film, i|
-      if i <= 5
-        puts "#{i}. #{film.name}"
-    end
+        if i >= first_number && i <= second_number
+          puts "#{i}. #{film.name}"
+      end
   end
 end
 
@@ -22,17 +22,13 @@ end
     input = nil
     puts ""
     puts "Which film would you like to further explore? Enter 1 - 5."
-    puts "If you would like to see films 6 - 10, Enter More."
+    puts "If you would like to see films 6 - 10, Enter 'more'"
     puts "If you would like to exit, type 'exit'"
     while input != "exit"
       input = gets.strip
       comedy = GreatestFilms::Comedy.find(input.to_i)
         if input == "more"
-            GreatestFilms::Comedy.all.each.with_index(1) do |film, i|
-              if i >= 6 && i <= 10
-              puts "#{i}. #{film.name}"
-            end
-          end
+            list_films(6, 10)
         elsif input == "exit"
           puts "Thank you for visiting Rotten Tomatoes Greatest Comedies. Goodbye!"
           exit
