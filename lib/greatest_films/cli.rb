@@ -60,7 +60,7 @@ def new_selection
   puts "Would you like to explore another film, Y or N?"
     input = gets.strip.downcase
       if input == "y"
-        list_films
+        list_films(0, 5)
       elsif input == "n"
         puts ""
         puts "Thank you for visiting Rotten Tomatoes Greatest Comedies. Goodbye!"
