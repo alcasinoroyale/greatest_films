@@ -10,7 +10,8 @@ class GreatestFilms::Comedy
     c.css(".tMeterScore").text,
     "https://www.rottentomatoes.com#{c.css("a").attribute("href").text}"
   )
-end
+  end
+
 def initialize(name=nil, rating=nil, url=nil)
   @name = name
   @rating = rating
