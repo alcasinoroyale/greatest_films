@@ -20,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-After running bundle, type 'ruby bin/greatest_films' into the terminal.
+After installing the gem and executing bundle:
+
+  $ ruby bin/greatest_films
+
+This will launch the top rated films list.
 
 ## Development
 
