@@ -4,28 +4,28 @@ class GreatestFilms::CLI
   def call
     GreatestFilms::Scraper.new.make_comedies
     puts "Welcome to Rotten Tomatoes Greatest Comedies!"
-    #list_films(0, 5)
-    top_rated_films
+    list_films(0, 5)
+    #top_rated_films
     start
     list_film_selection(film)
     new_selection
   end
 
-  #def list_films(first_number, second_number)
-    #GreatestFilms::Comedy.all.each.with_index(1) do |film, i|
-      #  if i >= first_number && i <= second_number
-        #  puts "#{i}. #{film.name}"
-    #  end
-#  end
-#end
-
-  def top_rated_films
-      GreatestFilms::Comedy.all.each.with_index(1) do |film, i|
-    if film.rating[1..2].to_i == 99 || film.rating[1..3].to_i == 100
-      puts "#{i}. #{film.name}. #{film.rating}"
+  def list_films(first_number, second_number)
+    GreatestFilms::Comedy.all.each.with_index(1) do |film, i|
+      if i >= first_number && i <= second_number
+        puts "#{i}. #{film.name}"
     end
-  end
+ end
 end
+
+  #def top_rated_films
+  #    GreatestFilms::Comedy.all.each.with_index(1) do |film, i|
+  #  if film.rating[1..2].to_i == 99 || film.rating[1..3].to_i == 100
+  #    puts "#{i}. #{film.name}. #{film.rating}"
+  #  end
+  # end
+# end
 
   def start
     input = nil

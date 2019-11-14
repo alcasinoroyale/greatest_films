@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+After running bundle, type 'ruby bin/greatest_films' into the terminal.
 
 ## Development
 
